@@ -8,19 +8,20 @@ namespace CSChat
 	{
 		WebSocketServer _ws = new WebSocketServer("ws://0.0.0.0:8181");
 		Dictionary<IWebSocketConnection, ChatClient> _clients = new Dictionary<IWebSocketConnection, ChatClient> ();
+		ChatClient _serverClient = new ChatClient(null);
 		private void DelegateMessage(IWebSocketConnection sender ,string message)
 		{
 			if (_clients[sender].Registered) {
-				BroadCast(_clients[sender].ColoredName, message);
+				BroadCast(_clients[sender], message);
 			} else {
 				if (message.StartsWith("//registerName:")) {
 					_clients[sender].Register(message.Split(':') [1]);
-					BroadCast ("server", _clients [sender].Name + " connected!");
+					BroadCast (_serverClient, _clients [sender].Name + " connected!");
 				}
 			}
 		}
 
-		private void BroadCast(string from, string message)
+		private void BroadCast(ChatClient from, string message)
 		{
 			foreach (var client in _clients)
 				client.Value.Send(from, message);
@@ -33,6 +34,7 @@ namespace CSChat
 
 		public void Serve ()
 		{
+			_serverClient.Register("Server");
 			_ws.Start(socket => {
 				socket.OnOpen += () => {
 					AddClient(socket);
@@ -42,7 +44,7 @@ namespace CSChat
 				};
 				socket.OnClose += () => {
 					if (_clients[socket].Registered)
-						BroadCast("server", _clients[socket].Name + " disconnected");
+						BroadCast(_serverClient, _clients[socket].Name + " disconnected");
 					_clients.Remove(socket);
 				};
 			});

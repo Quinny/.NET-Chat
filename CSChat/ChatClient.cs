@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Drawing;
+using System.Web.Script.Serialization;
 using Fleck;
 
 namespace CSChat
@@ -10,11 +11,8 @@ namespace CSChat
 		public string Name { get; private set;}
 		public bool Registered { get; private set;}
 		private Color _color;
-		public string ColoredName{
-			get {
-				return String.Format("<span style=\"color:{0}\";>{1}</span>",
-					_color.ToHex(), Name);
-			}
+		public string Color {
+			get { return _color.ToHex(); }
 		}
 
 		private IWebSocketConnection _connection;
@@ -24,9 +22,15 @@ namespace CSChat
 			_connection = c;
 		}
 
-		public void Send(string from, string message)
+		public void Send(ChatClient from, string message)
 		{
-			_connection.Send (from + ": " + HttpUtility.HtmlEncode(message));
+			var toSend = new ChatMessage ()
+			{
+				from = from.Name,
+				color = from.Color,
+				message = message
+			};
+			_connection.Send(new JavaScriptSerializer().Serialize(toSend));
 		}
 
 		public void Register(string n)

@@ -41,10 +41,12 @@
     <Compile Include="ChatClient.cs" />
     <Compile Include="Helpers\ColorGenerator.cs" />
     <Compile Include="Helpers\ColorExtensions.cs" />
+    <Compile Include="ChatMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />

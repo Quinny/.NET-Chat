@@ -21,7 +21,20 @@ $("document").ready(function() {
     _ws.onclose = function() {
     };
     _ws.onmessage = function(message) {
-        $(".messages").append("<tr><td>"+message.data + "</td></tr>");
-        $(".messageWrapper").scrollTop(1E10);
+        console.log(message.data);
+        message = JSON.parse(message.data);
+        $(".messages").append($("<tr>")
+                .append($("<td>")
+                    .append($("<span>")
+                        .css("color", message["color"])
+                        .text(message["from"])
+                    )
+                ).append($("<td>")
+                    .text(message["message"])
+                )
+            );
+        //$(".messages").append("<tr><td>" + message["message"] + "</tr></td>");
+        /*$(".messages").append("<tr><td>" + message.data + "</td></tr>");
+        $(".messageWrapper").scrollTop(1E10);*/
     };
 });
