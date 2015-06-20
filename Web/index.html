@@ -12,14 +12,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-xs-12">
-                <input type="text" id="username" />
-                <button type="button" class="btn" onclick="registerName()">
-                    Register Name
-                </button>
-                <input type="text" id="message" />
-                <button type="button" class="btn" onclick="sendMessage()">
-                    Send Message
-                </button>
+                <form class="registerName">
+                    <input type="text" id="username" />
+                    <button type="submit" class="btn btn-default">
+                        Register Name
+                    </button>
+                </form>
+                <form class="sendMessage hidden">
+                    <input type="text" class="" id="message" />
+                    <button type="button" class="btn btn-default"
+                        onclick="sendMessage()">
+                        Send Message
+                    </button>
+                </form>
                 <div class="well messages">
                 </div>
             </div>
