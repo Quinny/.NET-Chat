@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.js"></script>
+    <script src="chat.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <input type="text" id="username" />
+                <button type="button" class="btn" onclick="registerName()">
+                    Register Name
+                </button>
+                <input type="text" id="message" />
+                <button type="button" class="btn" onclick="sendMessage()">
+                    Send Message
+                </button>
+                <div class="well messages">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
