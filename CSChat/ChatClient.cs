@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using Fleck;
 
 namespace CSChat
@@ -16,7 +17,7 @@ namespace CSChat
 
 		public void Send(string message)
 		{
-			_connection.Send (message);
+			_connection.Send (HttpUtility.HtmlEncode(message));
 		}
 
 		public void Register(string n)

@@ -1,7 +1,8 @@
-.messages {
-    height: 80vh;
+.messageWrapper {
+    height:500px !important;
+    overflow:scroll;
 }
 
-#input {
+input {
     margin-top:10%;
 }

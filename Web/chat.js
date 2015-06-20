@@ -21,6 +21,7 @@ $("document").ready(function() {
     _ws.onclose = function() {
     };
     _ws.onmessage = function(message) {
-        $(".messages").append(message.data + "<br />");
+        $(".messages").append("<tr><td>"+message.data + "</td></tr>");
+        $(".messageWrapper").scrollTop(1E10);
     };
 });

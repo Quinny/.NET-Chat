@@ -23,7 +23,7 @@ namespace CSChat
 		private void BroadCast(string from, string message)
 		{
 			foreach (var client in _clients)
-				client.Value.Send (from + " : " + message);
+				client.Value.Send (from + ": " + message);
 		}
 
 		private void AddClient(IWebSocketConnection socket)
@@ -38,11 +38,11 @@ namespace CSChat
 					AddClient(socket);
 				};
 				socket.OnMessage += message => {
-					Console.WriteLine(message);
 					DelegateMessage(socket, message);
 				};
 				socket.OnClose += () => {
-					BroadCast("server", "client disconnected");
+					if (_clients[socket].Registered())
+						BroadCast("server", _clients[socket].Name() + " disconnected");
 					_clients.Remove(socket);
 				};
 			});
