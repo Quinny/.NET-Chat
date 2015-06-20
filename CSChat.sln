@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSChat", "CSChat\CSChat.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleck", "Fleck\src\Fleck\Fleck.csproj", "{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatTester", "ChatTester\ChatTester.csproj", "{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunServer", "ChatTester\RunServer.csproj", "{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
