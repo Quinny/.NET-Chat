@@ -10,12 +10,12 @@ namespace CSChat
 		Dictionary<IWebSocketConnection, ChatClient> _clients = new Dictionary<IWebSocketConnection, ChatClient> ();
 		private void DelegateMessage(IWebSocketConnection sender ,string message)
 		{
-			if (_clients [sender].Registered ()) {
-				BroadCast (_clients[sender].Name(), message);
+			if (_clients[sender].Registered) {
+				BroadCast(_clients[sender].ColoredName, message);
 			} else {
-				if (message.StartsWith ("//registerName:")) {
-					_clients [sender].Register (message.Split (':') [1]);
-					BroadCast ("server", _clients [sender].Name () + " connected!");
+				if (message.StartsWith("//registerName:")) {
+					_clients[sender].Register(message.Split(':') [1]);
+					BroadCast ("server", _clients [sender].Name + " connected!");
 				}
 			}
 		}
@@ -23,17 +23,17 @@ namespace CSChat
 		private void BroadCast(string from, string message)
 		{
 			foreach (var client in _clients)
-				client.Value.Send (from + ": " + message);
+				client.Value.Send(from, message);
 		}
 
 		private void AddClient(IWebSocketConnection socket)
 		{
-			_clients.Add (socket, new ChatClient (socket));
+			_clients.Add(socket, new ChatClient (socket));
 		}
 
-		public ChatServer ()
+		public void Serve ()
 		{
-			_ws.Start (socket => {
+			_ws.Start(socket => {
 				socket.OnOpen += () => {
 					AddClient(socket);
 				};
@@ -41,12 +41,11 @@ namespace CSChat
 					DelegateMessage(socket, message);
 				};
 				socket.OnClose += () => {
-					if (_clients[socket].Registered())
-						BroadCast("server", _clients[socket].Name() + " disconnected");
+					if (_clients[socket].Registered)
+						BroadCast("server", _clients[socket].Name + " disconnected");
 					_clients.Remove(socket);
 				};
 			});
 		}
 	}
 }
-

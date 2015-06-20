@@ -7,9 +7,7 @@ namespace CSChat
 		public static void Main (string[] args)
 		{
 			ChatServer c = new ChatServer();
-			Console.WriteLine ("ye");
-			Console.Read ();
-			Console.WriteLine ("done");
+			Console.Read();
 		}
 	}
 }

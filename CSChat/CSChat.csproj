@@ -39,8 +39,14 @@
   <ItemGroup>
     <Compile Include="ChatServer.cs" />
     <Compile Include="ChatClient.cs" />
+    <Compile Include="Helpers\ColorGenerator.cs" />
+    <Compile Include="Helpers\ColorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>

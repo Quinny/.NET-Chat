@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Web;
+using System.Drawing;
 using Fleck;
 
 namespace CSChat
 {
 	public class ChatClient
 	{
-		private string _name = String.Empty;
-		private bool _registered = false;
+		public string Name { get; private set;}
+		public bool Registered { get; private set;}
+		private Color _color;
+		public string ColoredName{
+			get {
+				return String.Format("<span style=\"color:{0}\";>{1}</span>",
+					_color.ToHex(), Name);
+			}
+		}
+
 		private IWebSocketConnection _connection;
 
 		public ChatClient(IWebSocketConnection c)
@@ -15,26 +24,16 @@ namespace CSChat
 			_connection = c;
 		}
 
-		public void Send(string message)
+		public void Send(string from, string message)
 		{
-			_connection.Send (HttpUtility.HtmlEncode(message));
+			_connection.Send (from + ": " + HttpUtility.HtmlEncode(message));
 		}
 
 		public void Register(string n)
 		{
-			_name = n;
-			_registered = true;
-		}
-
-		public bool Registered()
-		{
-			return _registered;
-		}
-
-		public string Name()
-		{
-			return _name;
+			Name = HttpUtility.HtmlEncode(n);
+			Registered = true;
+			_color = ColorGenerator.GetColor();
 		}
 	}
 }
-

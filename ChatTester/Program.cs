@@ -7,8 +7,9 @@ namespace ChatTester
 	{
 		public static void Main (string[] args)
 		{
-			var c = new ChatServer ();
-			Console.ReadLine ();
+			var c = new ChatServer();
+			c.Serve();
+			Console.ReadLine();
 		}
 	}
 }
