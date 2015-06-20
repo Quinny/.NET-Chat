@@ -33,8 +33,6 @@ $("document").ready(function() {
                     .text(message["message"])
                 )
             );
-        //$(".messages").append("<tr><td>" + message["message"] + "</tr></td>");
-        /*$(".messages").append("<tr><td>" + message.data + "</td></tr>");
-        $(".messageWrapper").scrollTop(1E10);*/
+        $(".messageWrapper").scrollTop(1E10);
     };
 });
