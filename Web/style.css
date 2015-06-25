@@ -1,5 +1,6 @@
 .messageWrapper {
     height:500px !important;
+    border: 1px solid black;
     overflow:scroll;
 }
 

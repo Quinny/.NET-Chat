@@ -1,5 +1,19 @@
 var _ws;
 
+function appendMessage(message) {
+    $(".messages").append($("<tr>")
+            .append($("<td>")
+                .append($("<span>")
+                    .css("color", message["color"])
+                    .text(message["from"])
+                )
+            ).append($("<td>")
+                .text(message["message"])
+            )
+        );
+    $(".messageWrapper").scrollTop(1E10);
+}
+
 $("document").ready(function() {
     $(".sendMessage").submit(function() {
         _ws.send($("#message").val());
@@ -21,18 +35,6 @@ $("document").ready(function() {
     _ws.onclose = function() {
     };
     _ws.onmessage = function(message) {
-        console.log(message.data);
-        message = JSON.parse(message.data);
-        $(".messages").append($("<tr>")
-                .append($("<td>")
-                    .append($("<span>")
-                        .css("color", message["color"])
-                        .text(message["from"])
-                    )
-                ).append($("<td>")
-                    .text(message["message"])
-                )
-            );
-        $(".messageWrapper").scrollTop(1E10);
+        appendMessage(JSON.parse(message.data));
     };
 });
