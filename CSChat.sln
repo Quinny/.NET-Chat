@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleck", "Fleck\src\Fleck\Fl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunServer", "RunServer\RunServer.csproj", "{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{53D4F279-E768-465C-9568-3935EC3CA387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -17,6 +19,10 @@ Global
 		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Debug|x86.Build.0 = Debug|x86
 		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Release|x86.ActiveCfg = Release|x86
 		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Release|x86.Build.0 = Release|x86
+		{53D4F279-E768-465C-9568-3935EC3CA387}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{53D4F279-E768-465C-9568-3935EC3CA387}.Debug|x86.Build.0 = Debug|Any CPU
+		{53D4F279-E768-465C-9568-3935EC3CA387}.Release|x86.ActiveCfg = Release|Any CPU
+		{53D4F279-E768-465C-9568-3935EC3CA387}.Release|x86.Build.0 = Release|Any CPU
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Debug|x86.Build.0 = Debug|Any CPU
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Release|x86.ActiveCfg = Release|Any CPU
