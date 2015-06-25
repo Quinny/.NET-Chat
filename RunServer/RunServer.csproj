@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}</ProjectGuid>
+    <ProjectGuid>{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ChatTester</RootNamespace>
-    <AssemblyName>ChatTester</AssemblyName>
+    <RootNamespace>RunServer</RootNamespace>
+    <AssemblyName>RunServer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">

@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSChat", "CSChat\CSChat.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleck", "Fleck\src\Fleck\Fleck.csproj", "{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunServer", "ChatTester\RunServer.csproj", "{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunServer", "RunServer\RunServer.csproj", "{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +13,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}.Debug|x86.ActiveCfg = Debug|x86
-		{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}.Debug|x86.Build.0 = Debug|x86
-		{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}.Release|x86.ActiveCfg = Release|x86
-		{86E0E1AE-A574-4A99-A70A-1B57B2BDDE55}.Release|x86.Build.0 = Release|x86
+		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Debug|x86.ActiveCfg = Debug|x86
+		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Debug|x86.Build.0 = Debug|x86
+		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Release|x86.ActiveCfg = Release|x86
+		{3678C021-321C-4CA6-8EBA-33A9C3F9CB7D}.Release|x86.Build.0 = Release|x86
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Debug|x86.Build.0 = Debug|Any CPU
 		{8B12D929-AFA9-4307-BEFF-2ED0F1070FEE}.Release|x86.ActiveCfg = Release|Any CPU
