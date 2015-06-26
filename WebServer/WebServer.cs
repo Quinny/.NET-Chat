@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading;
 using System.Text;
+using System.IO;
 
 namespace CSChat
 {
@@ -9,7 +10,6 @@ namespace CSChat
 	{
 		private HttpListener _listener = new HttpListener();
 		public delegate string ResponseHandler(HttpListenerRequest r);
-
 		private ResponseHandler _handler;
 
 		public WebServer (ResponseHandler h, params string[] prefixes)
@@ -45,6 +45,15 @@ namespace CSChat
 		{
 			_listener.Stop();
 			_listener.Close();
+		}
+
+		public static ResponseHandler ServeFromDir(string path)
+		{
+			return (HttpListenerRequest r) => {
+				if (r.Url.LocalPath == "/")
+					return File.ReadAllText(path + "/index.html");
+				return File.ReadAllText(path + r.Url.LocalPath);
+			};
 		}
 	}
 }

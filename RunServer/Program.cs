@@ -12,9 +12,7 @@ namespace RunServer
 			var wh = new AutoResetEvent(false);
 			s.Serve();
 
-			var ws = new WebServer (r => {
-				return "hello world";
-			}, "http://localhost:8000/");
+			var ws = new WebServer (WebServer.ServeFromDir("../../../Web"), "http://localhost:8000/");
 			ws.Serve();
 			wh.WaitOne();
 		}
