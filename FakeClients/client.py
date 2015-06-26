@@ -3,8 +3,9 @@ import thread
 import time
 import sys
 import random
+from faker import Factory
 
-MESSAGE = open("message.txt").read()
+fake = Factory.create()
 
 def on_message(ws, message):
     print message
@@ -17,10 +18,10 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        ws.send("//registerName:dude")
+        ws.send("//registerName:" + fake.name())
         while(True):
             time.sleep(random.randint(1, 3))
-            ws.send(MESSAGE)
+            ws.send(fake.text())
         ws.close()
         print "[-] Thread died"
     thread.start_new_thread(run, ())
